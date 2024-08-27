@@ -1,0 +1,81 @@
+{
+  "name": "Grafana Heroku Template",
+  "shortName": "GHT",
+  "description": "Grafana template - Using Docker for Heroku",
+  "repository": "https://github.com/natemacs",
+  "logo": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Grafana_icon.svg",
+  "keywords": [
+    "heroku",
+    "container",
+    "template",
+    "grafana"
+  ],
+  "stack": "container",
+  "env": {
+    "GF_LOG_LEVEL": {
+      "description": "Application Debug Level.",
+      "value": "debug"
+    },
+    "GF_SECURITY_ADMIN_USER": {
+      "description": "Application Admin User",
+      "value": "admin"
+    },
+    "GF_SECURITY_ADMIN_PASSWORD": {
+      "description": "Application Admin User",
+      "value": "admin"
+    },
+    "GF_DATABASE_TYPE": {
+      "description": "Application Database type",
+      "value": "postgres"
+    },
+    "GF_DATABASE_HOST": {
+      "description": "Database Connection host (change it)",
+      "value": "localhost:5432"
+    },
+    "GF_DATABASE_NAME": {
+      "description": "Database Connection name (change it)",
+      "value": "grafana"
+    },
+    "GF_DATABASE_USER": {
+      "description": "Database Connection user (change it)",
+      "value": "postgres"
+    },
+    "GF_DATABASE_PASSWORD": {
+      "description": "Database Connection password (change it)",
+      "value": "password"
+    },
+    "GF_DATABASE_SSL_MODE": {
+      "description": "Database Connection ssl mode (disable|require)",
+      "value": "require"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "addons": [
+    {
+      "plan": "scheduler:standard",
+      "as": "SCHEDULER"
+    },
+    
+    {
+      "plan": "quotaguardstatic:starter",
+      "as": "PROXY"
+    },
+    {
+      "plan": "heroku-postgresql:basic",
+      "as": "DATABASE"
+    }
+  ],
+  "environments": {
+    "development": {
+      "scripts": {}
+    },
+    "production": {
+      "scripts": {}
+    }
+  }
+}
