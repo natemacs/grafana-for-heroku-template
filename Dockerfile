@@ -7,9 +7,7 @@ ENV GF_INSTALL_PLUGINS grafana-clock-panel,natel-discrete-panel,briangann-gauge-
 ENV GF_SECURITY_ALLOW_EMBEDDING true
 ENV GF_AUTH_ANONYMOUS_ENABLED true
 
-ADD entrypoint.sh /
 ADD grafana.ini.template /etc/grafana/grafana.ini.template
-
 
 USER root
 RUN apk --no-cache add \
