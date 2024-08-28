@@ -13,8 +13,16 @@
   "stack": "container",
   "env": {
     "GF_LOG_LEVEL": {
-      "description": "Application Debug Level.",
+      "description": "Application Debug Level",
       "value": "debug"
+    },
+    "GF_AUTH_ANONYMOUS_ENABLED": {
+      "description": "Application Anonymous Login",
+      "value": "false"
+    },
+    "GF_SECURITY_ALLOW_EMBEDDING": {
+      "description": "Application Allow Embedding",
+      "value": "false"
     },
     "GF_SECURITY_ADMIN_USER": {
       "description": "Application Admin User",
